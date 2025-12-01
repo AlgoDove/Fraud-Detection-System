@@ -15,7 +15,7 @@ A student-level but industry-relevant **Fraud Detection System** using an **Auto
 
 ## Repository Structure
 ```text
-fraud-detection-autoencoder/
+Fraud-Detection-Sutoencoder/
 ├── src/
 │   ├── data_prep.py
 │   └── model_train.py
