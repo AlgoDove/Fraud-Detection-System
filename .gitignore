@@ -1,0 +1,17 @@
+# Python cache files (Never upload these!)
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
+
+# Mac system files
+.DS_Store
