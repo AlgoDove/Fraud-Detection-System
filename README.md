@@ -14,23 +14,19 @@ A student-level but industry-relevant **Fraud Detection System** using an **Auto
 ---
 
 ## Repository Structure
+```text
 fraud-detection-autoencoder/
-│
-├── src/ # Source code
-│ ├── data_prep.py # Synthetic data generation & preprocessing
-│ └── model_train.py # Autoencoder model, training, evaluation
-│
-├── notebooks/ # Notebooks demonstrating workflow
-│ └── 01_preprocessing.ipynb
-│
-├── models/ # Saved model artifacts (autoencoder, scaler info)
-│ ├── autoencoder_model.keras
-│ └── artifacts.pkl
-│
-├── app.py # Flask API for real-time predictions
-├── requirements.txt # Dependencies
-└── README.md # Project overview
-
+├── src/
+│   ├── data_prep.py
+│   └── model_train.py
+├── notebooks/
+│   └── 01_preprocessing.ipynb
+├── models/
+│   ├── autoencoder_model.keras
+│   └── artifacts.pkl
+├── app.py
+├── requirements.txt
+└── README.md
 
 
 ---
@@ -72,7 +68,9 @@ pip install -r requirements.txt
 python app.py
 
 Endpoint: POST /predict
-Sample request:
+
+Sample Request:
+
 {
   "transactions": [
     {
@@ -87,6 +85,7 @@ Sample request:
 }
 
 Sample response:
+
 [
   {
     "amount": 1200,
