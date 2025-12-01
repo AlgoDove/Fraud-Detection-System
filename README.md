@@ -27,7 +27,7 @@ Fraud-Detection-Sutoencoder/
 ├── app.py
 ├── requirements.txt
 └── README.md
-
+```
 
 ---
 
