@@ -5,15 +5,15 @@ import tensorflow as tf
 import pandas as pd
 import os
 
-# -----------------------------
+
 # CONFIG / PATHS
-# -----------------------------
+
 MODEL_PATH = os.path.join("models", "autoencoder_model.keras")
 ARTIFACTS_PATH = os.path.join("models", "artifacts.pkl")
 
-# -----------------------------
+
 # LOAD MODEL AND ARTIFACTS
-# -----------------------------
+
 autoencoder = tf.keras.models.load_model(MODEL_PATH)
 with open(ARTIFACTS_PATH, "rb") as f:
     artifacts = pickle.load(f)
@@ -25,14 +25,14 @@ THRESHOLD = artifacts['threshold']
 NUMERIC_FEATURES = artifacts.get('numeric_features', ['amount', 'user_24h_count', 'user_1h_count', 'user_amt_diff_24h'])
 CATEGORICAL_FEATURES = artifacts.get('categorical_features', ['merchant_id', 'location'])
 
-# -----------------------------
+
 # FLASK SETUP
-# -----------------------------
+
 app = Flask(__name__)
 
-# -----------------------------
+
 # HELPER FUNCTIONS
-# -----------------------------
+
 def preprocess_input(df: pd.DataFrame):
     """
     Apply scaling and one-hot encoding to match training features
@@ -58,9 +58,9 @@ def predict_anomalies(df: pd.DataFrame):
     df['is_anomaly'] = (mse >= THRESHOLD).astype(int)
     return df
 
-# -----------------------------
+
 # ROUTES
-# -----------------------------
+
 @app.route("/")
 def home():
     return "<h2>Fraud Detection Autoencoder API is running!</h2>"
@@ -91,8 +91,8 @@ def predict():
     df_output = predict_anomalies(df_input)
     return df_output.to_json(orient="records")
 
-# -----------------------------
+
 # RUN APP
-# -----------------------------
+
 if __name__ == "__main__":
     app.run(debug=True)
